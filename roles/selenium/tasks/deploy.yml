@@ -1,0 +1,37 @@
+- name: "Packages update"
+  apt:
+    update_cache: yes
+
+- name: "Install client APT packages"
+  apt:
+    pkg:
+      - python3
+
+- name: "Deploy requirements of python app"
+  copy:
+    src: requirements.txt
+    dest: /opt/selenium/requirements.txt
+    owner: selenium
+    group: selenium
+
+- name: "Python virtual environment"
+  pip:
+    requirements: /opt/selenium/requirements.txt
+    virtualenv: /opt/selenium/venv
+    virtualenv_command: "/usr/bin/python3 -m venv"
+
+- name: "Deploy python app"
+  copy:
+    src: nessus_scan_launcher.py
+    dest: /opt/selenium/nessus_scan_launcher.py
+    owner: selenium
+    group: selenium
+    mode: '0700'
+
+- name: "Install CLI app"
+  copy:
+    dest: /usr/bin/nsl
+    content: |
+      #!/opt/selenium/venv/bin/python /opt/selenium/nessus_scan_launcher.py
+    mode: '0750'
+

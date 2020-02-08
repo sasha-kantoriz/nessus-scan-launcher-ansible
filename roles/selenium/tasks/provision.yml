@@ -1,9 +1,20 @@
 - name: "Packages update"
   apt:
     update_cache: yes
+  # tags:
+  #   - always
 
-- name: "Install APT packages"
+- name: "Install server APT packages"
   apt:
     pkg:
       - openjdk-8-jre
+      - python3
+  # tags:
+  #   - server
 
+- name: "Install client APT packages"
+  apt:
+    pkg:
+      - python3
+  # tags:
+  #   - client

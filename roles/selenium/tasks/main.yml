@@ -14,11 +14,18 @@
 # - apt:
 #     name: "apache2"
 #     state: present
+
 - name: "User creation"
   import_tasks: user.yml
 
 - name: "Provision servers"
   import_tasks: provision.yml
+  tags: ['server']
 
 - name: "Selenium service deployment"
   import_tasks: selenium.yml
+  tags: ['server']
+
+- name: "Selenium Nessus Scan launcher app deployment"
+  import_tasks: deploy.yml
+  tags: ['client']
