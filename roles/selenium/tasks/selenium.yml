@@ -1,0 +1,19 @@
+- name: 'Download Selenium server pkg'
+  get_url:
+    url: 'https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar'
+    dest: /opt/selenium/
+    mode: '0440'
+    owner: selenium
+    group: selenium
+
+- name: 'Create Systemd Service'
+  copy:
+    src: selenium.service
+    dest: /lib/systemd/system
+
+- name: "Force systemd to reread configs. Enable and start Selenium service"
+  systemd:
+    state: started
+    enabled: yes
+    daemon_reload: yes
+    name: selenium

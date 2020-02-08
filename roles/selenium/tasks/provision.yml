@@ -7,11 +7,3 @@
     pkg:
       - openjdk-8-jre
 
-- name: 'Download Selenium server pkg'
-  get_url:
-    url: 'https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar'
-    dest: /opt/selenium/
-    mode: '0440'
-    owner: selenium
-    group: selenium
-

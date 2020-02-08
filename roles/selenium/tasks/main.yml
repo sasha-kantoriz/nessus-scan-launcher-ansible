@@ -19,3 +19,6 @@
 
 - name: "Provision servers"
   import_tasks: provision.yml
+
+- name: "Selenium service deployment"
+  import_tasks: selenium.yml
