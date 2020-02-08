@@ -1,0 +1,10 @@
+- name: 'Create dedicated group'
+  group:
+    name: selenium
+    gid: 1040
+- name: 'Create dedicated user'
+  user:
+    name: selenium
+    uid: 1040
+    group: selenium
+    home: /opt/selenium
