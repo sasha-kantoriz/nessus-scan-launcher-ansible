@@ -1,5 +1,14 @@
 ---
-- hosts: all
-  roles:
-    - selenium
+- hosts: servers
+  tasks:
+    - include_role:
+        name: selenium
+      tags: ['server']
+  become: yes
+
+- hosts: clients
+  tasks:
+    - include_role:
+        name: selenium
+      tags: ['client']
   become: yes
