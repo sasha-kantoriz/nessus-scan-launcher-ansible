@@ -1,2 +1,8 @@
 ---
 # vars file for test
+selenium:
+  server_ip: ''
+nessus:
+  url: ''
+  username: ''
+  password: ''
