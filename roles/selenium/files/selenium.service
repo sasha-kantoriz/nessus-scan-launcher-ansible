@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 EnvironmentFile=-/opt/selenium/defaults
-ExecStart=/usr/lib/jvm/java-8-openjdk-amd64/bin/java -jar /opt/selenium/selenium-server-standalone-3.141.59.jar
+ExecStart=/usr/lib/jvm/java-8-openjdk-amd64/bin/java -Dwebdriver.chrome.driver=/opt/selenium/chromedriver -jar /opt/selenium/selenium-server-standalone-3.141.59.jar
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 Restart=on-failure
