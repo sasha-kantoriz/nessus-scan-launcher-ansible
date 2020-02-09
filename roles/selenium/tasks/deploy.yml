@@ -32,6 +32,7 @@
   copy:
     dest: /usr/bin/nsl
     content: |
-      #!/opt/selenium/venv/bin/python /opt/selenium/nessus_scan_launcher.py "$@"
+      #!/bin/bash
+      /opt/selenium/venv/bin/python /opt/selenium/nessus_scan_launcher.py "$@"
     mode: '0755'
 

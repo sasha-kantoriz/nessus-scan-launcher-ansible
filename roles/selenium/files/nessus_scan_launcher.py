@@ -10,11 +10,11 @@ from pdb import set_trace
 
 def parse_cli_args():
     parser = OptionParser()
-    parser.add_option("-cfg", "--config",
-                    dest="config_file")
-    parser.add_option("-su", "--selenium-url",
+    parser.add_option("-C", "--config",
+                    dest="config_file",)
+    parser.add_option("-S", "--selenium-url",
                     dest="selenium_url")
-    parser.add_option("-u", "--nessus-url",
+    parser.add_option("-N", "--nessus-url",
                     dest="server_url")
     parser.add_option("-c", "--customer",
                     action="append",
