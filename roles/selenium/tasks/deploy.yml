@@ -26,12 +26,12 @@
     dest: /opt/selenium/nessus_scan_launcher.py
     owner: selenium
     group: selenium
-    mode: '0700'
+    mode: '0744'
 
 - name: "Install CLI app"
   copy:
     dest: /usr/bin/nsl
     content: |
-      #!/opt/selenium/venv/bin/python /opt/selenium/nessus_scan_launcher.py
-    mode: '0750'
+      #!/opt/selenium/venv/bin/python /opt/selenium/nessus_scan_launcher.py "$@"
+    mode: '0755'
 

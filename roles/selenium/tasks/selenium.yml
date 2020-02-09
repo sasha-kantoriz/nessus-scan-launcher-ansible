@@ -5,15 +5,11 @@
     mode: '0440'
     owner: selenium
     group: selenium
-  # tags:
-  #   - server
 
 - name: 'Create Systemd Service'
   copy:
     src: selenium.service
     dest: /lib/systemd/system
-  # tags:
-  #   - server
 
 - name: "Force systemd to reread configs. Enable and start Selenium service"
   systemd:
@@ -21,5 +17,3 @@
     enabled: yes
     daemon_reload: yes
     name: selenium
-  # tags:
-  #   - server

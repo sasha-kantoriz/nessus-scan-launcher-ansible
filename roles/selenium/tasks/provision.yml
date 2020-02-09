@@ -1,20 +1,22 @@
 - name: "Packages update"
   apt:
     update_cache: yes
-  # tags:
-  #   - always
 
 - name: "Install server APT packages"
   apt:
     pkg:
       - openjdk-8-jre
       - python3
-  # tags:
-  #   - server
 
-- name: "Install client APT packages"
+- name: "Install Chrome package"
   apt:
-    pkg:
-      - python3
-  # tags:
-  #   - client
+    deb: 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+
+- name: "Install Chromedriver package"
+  unarchive:
+    src: 'https://chromedriver.storage.googleapis.com/80.0.3987.16/chromedriver_linux64.zip'
+    dest: /opt/selenium/
+    remote_src: yes
+    owner: selenium
+    group: selenium
+
